@@ -43,12 +43,9 @@ def parse_and_log_errors(response):
 
 
 def csv_to_dict(source):
-    dct = []
     with open(source, 'r') as f:
         reader = csv.DictReader(f, dialect="excel")
-        for row in reader:
-            dct.append({column: row[column] for column in row})
-    return dct
+        return [{column: row[column] for column in row} for row in reader]
 
 
 def dict_to_xml(dct, root_title):
