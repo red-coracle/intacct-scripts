@@ -64,7 +64,7 @@ if __name__ == '__main__':
     root[0][0].text = sender_id
     root[0][1].text = sender_password
     root[1][0][0].text = input('Session ID: ')
-    details = [dict_to_xml(detail, 'create_taxdetail') for detail in csv_to_dict('tax_details.csv')]
+    details = [dict_to_xml(detail, 'create_taxdetail') for detail in csv_to_dict(filename)]
     content = root[1][1]
     for detail in details:
         function = ET.Element('function', attrib={'controlid': 'tax_upload'})
