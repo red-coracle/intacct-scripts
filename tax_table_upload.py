@@ -61,10 +61,11 @@ def dict_to_xml(dct, root_title):
 if __name__ == '__main__':
     # Could change these prompts.
     filename = input('Filename: ')
+    function = input('Function: ')
     root[0][0].text = sender_id
     root[0][1].text = sender_password
     root[1][0][0].text = input('Session ID: ')
-    details = [dict_to_xml(detail, 'create_taxdetail') for detail in csv_to_dict(filename)]
+    details = [dict_to_xml(detail, function) for detail in csv_to_dict(filename)]
     content = root[1][1]
     for detail in details:
         function = ET.Element('function', attrib={'controlid': 'tax_upload'})
